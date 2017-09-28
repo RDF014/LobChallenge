@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({extended: true}));
 
 
-app.post('/test', (req, res) => {
+app.get('/test', (req, res) => {
   console.log('recieved post req');
-  res.status(201).send('HELLO WORLD');
+  res.status(200).json("HELLO WORLD");
 });
 
 app.listen(port, () => {

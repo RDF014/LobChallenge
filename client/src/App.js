@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './containers/input.js';
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,14 +9,17 @@ class App extends Component {
     myHeaders.append('Accept', 'application/json');
     myHeaders.append('Content-Type', 'application/json');
     const myInit = {
-      method: 'POST',
+      method: 'GET',
       headers: myHeaders
     };
 
 
     fetch('/test', myInit)
       .then(res => {
-        console.log(res);
+        return res.json();
+      })
+      .then(result => {
+        console.log(result);
       });
   }
 
@@ -33,6 +37,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Input />
       </div>
     );
   }
